@@ -1,0 +1,12 @@
+<div *ngFor="let notification of notificationService.notifications$ | async">
+<div *ngIf="notification.text">
+  <span class="close" (click)="notificationService.close(notification)">&#10005;</span>
+  <div class="alert" [ngClass]="{
+  'alert-success': type === 'success',
+  'alert-warning': type === 'warning',
+  'alert-danger': type === 'error'
+  }">
+    {{ notification.text }}
+  </div>
+</div>
+</div>
